@@ -27,3 +27,8 @@ resource "aws_iam_group_policy_attachment" "devops_group_policy" {
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
 
+# Upload an existing public key to AWS
+resource "aws_key_pair" "example_key" {
+  key_name   = "example-key"
+  public_key = file("~/.ssh/id_rsa.pub") # Path to your public key file
+}
