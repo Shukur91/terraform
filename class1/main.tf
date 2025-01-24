@@ -15,13 +15,15 @@ resource "aws_iam_group_membership" "devops_group_membership" {
 }
 
 
-
-
-
 resource "aws_iam_user" "bob" {
   name = "bob"
 }
 resource "aws_iam_user" "kate" {
   name = "Kate"
+}
+
+resource "aws_iam_group_policy_attachment" "devops_group_policy" {
+  group      = aws_iam_group.devops_group.name
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
 
