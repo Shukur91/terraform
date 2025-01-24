@@ -1,13 +1,11 @@
 #!/bin/bash
-# Step 1: Clone the tfenv repository
-git clone https://github.com/tfutils/tfenv.git ~/.tfenv
-
-# Step 2: Add tfenv to PATH
-echo 'export PATH="$HOME/.tfenv/bin:$PATH"' >> ~/.bashrc
-
-# Step 3: Reload the shell configuration
-source ~/.bashrc
-
+#!/bin/bash
+rm -rf ~/.tfenv
+git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv
+echo 'export PATH="$HOME/.tfenv/bin:$PATH"' >> ~/.bash_profile
+echo 'export PATH=$PATH:$HOME/.tfenv/bin' >> ~/.bashrc
+mkdir -p $HOME/bin
+ln -s ~/.tfenv/bin/* $HOME/bin
 
 
 
