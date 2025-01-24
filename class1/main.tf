@@ -32,17 +32,3 @@ resource "aws_key_pair" "example_key" {
 
 
 
-
-
-
-# Generate a random string for the bucket name
-resource "random_string" "bucket_suffix" {
-  length  = 8
-  special = false
-  upper   = false
-}
-
-# Create the S3 bucket
-resource "aws_s3_bucket" "example_bucket" {
-  bucket = "my-unique-bucket-${random_string.bucket_suffix.result}"
-}
