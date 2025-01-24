@@ -22,6 +22,6 @@ resource "aws_iam_user" "bob" {
   name = "bob"
 }
 resource "aws_iam_user" "kate" {
-  name = "kate"
+  name = "Kate"
 }
 
