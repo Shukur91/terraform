@@ -9,7 +9,7 @@ resource "aws_iam_user" "bob" {
 }
 
 resource "aws_iam_user" "kate" {
-  name = "kate"
+  name = "Kate"
 }
 
 # Add users to the IAM group
@@ -17,7 +17,7 @@ resource "aws_iam_group_membership" "devops_group_membership" {
   name  = "devops-group-membership"
   group = aws_iam_group.devops_group.name
 
-  users = [aws_iam_user.bob.name, aws_iam_user.kate.name]
+  users = [aws_iam_user.bob.name, aws_iam_user.Kate.name]
 }
 
 
@@ -39,6 +39,6 @@ resource "aws_iam_group" "admin_group" {
 
 resource "aws_iam_group_membership" "team" {
   name  = "admin-group-membership"
-  group = aws_iam_group.admin_group.name
-  users = [aws_iam_user.bob.name, aws_iam_user.kate.name]
+  group = "adminsssssss"
+  users = [aws_iam_user.bob.name, aws_iam_user.Kate.name]
 }
