@@ -1,7 +1,7 @@
-# Create IAM group
-resource "aws_iam_group" "devops_group" {
-  name = "devops-group"
-}
+# # Create IAM group
+# resource "aws_iam_group" "devops_group" {
+#   name = "devops-group"
+# }
 
 # Add 'bob' to the group
 resource "aws_iam_group_membership" "devops_group_membership" {
