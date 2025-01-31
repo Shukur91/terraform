@@ -35,11 +35,25 @@ resource "aws_s3_bucket" "example" {
 }
 resource "aws_iam_group" "devops" {
   name = "devops"
-  
 }
 
 resource "aws_iam_group_membership" "devops" {
   name  = "devops-group-membership"
   users = [aws_iam_user.bob.name, aws_iam_user.kate.name]
   group = aws_iam_group.devops.name
+}
+
+resource "aws_iam_group" "sales-team" {
+  name = "sales-team"
+}
+
+resource "aws_iam_group_membership" "sales-team" {
+  name = "sales-team-group-membership"
+
+  users = [
+    aws_iam_user.bob.name,
+    aws_iam_user.kate.name,
+  ]
+
+  group = aws_iam_group.sales-team.name
 }
