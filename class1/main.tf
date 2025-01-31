@@ -33,3 +33,13 @@ resource "aws_key_pair" "example_key" {
 resource "aws_s3_bucket" "example" {
   bucket_prefix = "my-tf-test-bucket"
 }
+resource "aws_iam_group" "devops" {
+  name = "devops"
+  
+}
+
+resource "aws_iam_group_membership" "devops" {
+  name  = "devops-group-membership"
+  users = [ aws_iam_user,bob.name, aws_iam_user.kate.name]
+  group = aws_iam_group.devops.name
+}
