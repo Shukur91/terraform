@@ -16,12 +16,12 @@ resource "aws_iam_user" "kate" {
 # }
 
 # # Add users to the Admin group
-# resource "aws_iam_group_membership" "admin_group_membership" {
-#   name  = "admin-group-membership"
-#   group = aws_iam_group.admin_group.name
+resource "aws_iam_group_membership" "team" {
+  name  = "admin-group-membership"
+  group = "admins"
 
-#   users = [aws_iam_user.bob.name, aws_iam_user.kate.name]
-# }
+  users = [aws_iam_user.bob.name, aws_iam_user.kate.name]
+}
 
 # Upload an existing public SSH key to AWS
 resource "aws_key_pair" "example_key" {
@@ -29,7 +29,7 @@ resource "aws_key_pair" "example_key" {
   public_key = file("~/.ssh/id_rsa.pub") # Path to your public key file
 }
 
-# # Create an S3 bucket
-# resource "aws_s3_bucket" "example" {
-#   bucket_prefix = "my-tf-test-bucket"
-# }
+# Create an S3 bucket
+resource "aws_s3_bucket" "example" {
+  bucket_prefix = "my-tf-test-bucket"
+}
